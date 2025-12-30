@@ -1,0 +1,1718 @@
+/* Cloud Auto Importer Admin Styles - Enhanced v2.2.0 */
+/* Complete file with all fixes */
+
+/* ============ MAIN DASHBOARD LAYOUT ============ */
+.cai-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin: 24px 0;
+}
+
+/* ============ CARDS - RESTORE ORIGINAL STYLING ============ */
+.cai-card {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    padding: 24px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.cai-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-color: #8c8f94;
+}
+
+.cai-card h2 {
+    margin: 0 0 20px 0;
+    color: #1d2327;
+    border-bottom: 1px solid #dcdcde;
+    padding-bottom: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Status card specific */
+.cai-card:first-child {
+    border-top: 3px solid #2271b1;
+}
+
+/* ============ STATUS INDICATORS - FIXED COLORS ============ */
+.cai-status {
+    padding: 14px 16px;
+    border-left: 4px solid #72aee6;
+    margin: 20px 0;
+    background: linear-gradient(135deg, #f6f7f7 0%, #f0f0f1 100%);
+    display: flex;
+    align-items: center;
+    border-radius: 0 4px 4px 0;
+    min-width: 0;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.cai-status.connected {
+    border-left-color: #00a32a;
+    background: linear-gradient(135deg, #edfaef 0%, #e0f5e4 100%);
+}
+
+.cai-status.disconnected {
+    border-left-color: #d63638;
+    background: linear-gradient(135deg, #fcf0f1 0%, #f8e6e8 100%);
+}
+
+.cai-status .dashicons {
+    margin-right: 12px;
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+/* ============ ENHANCED QUICK STATS BAR ============ */
+.cai-quick-stats-bar {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 6px;
+    padding: 24px;
+    margin: 24px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.cai-quick-stats-bar .cai-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 0;
+}
+
+.cai-quick-stats-bar .cai-stat-card {
+    background: linear-gradient(135deg, #f6f7f7 0%, #f0f0f1 100%);
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cai-quick-stats-bar .cai-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cai-quick-stats-bar .cai-stat-card h4 {
+    margin: 0 0 12px 0;
+    color: #3c434a;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Progress bar in stats */
+.cai-progress-container {
+    margin: 16px 0 0 0;
+}
+
+.cai-progress-bar {
+    height: 8px;
+    background: #f0f0f1;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.cai-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #46b450, #35a03e);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cai-progress-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #646970;
+}
+
+.cai-progress-text strong {
+    color: #1d2327;
+    font-size: 14px;
+}
+
+/* Upgrade hint */
+.cai-upgrade-hint {
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: #fff3e6;
+    border: 1px solid #ffb900;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #8a6900;
+    animation: pulse 2s infinite;
+}
+
+.cai-upgrade-hint a {
+    color: #d63638;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.cai-upgrade-hint a:hover {
+    text-decoration: underline;
+}
+
+/* Stat values */
+.cai-stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2271b1;
+    line-height: 1;
+    margin: 8px 0;
+}
+
+.cai-stat-label {
+    font-size: 12px;
+    color: #8c8f94;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Upgrade CTA Card */
+.cai-upgrade-cta {
+    background: linear-gradient(135deg, #f0f6ff 0%, #e8f0fe 100%);
+    border: 1px solid #2271b1;
+}
+
+.cai-upgrade-cta h4 {
+    color: #2271b1 !important;
+}
+
+.cai-upgrade-cta p {
+    color: #50575e;
+    margin: 8px 0 16px 0;
+    font-size: 13px;
+}
+
+.cai-upgrade-cta .button-primary {
+    background: #2271b1;
+    color: white;
+    border-color: #135e96;
+    font-weight: 600;
+    padding: 10px 20px;
+}
+
+.cai-upgrade-cta .button-primary:hover {
+    background: #135e96;
+    border-color: #0c4b7a;
+}
+
+.cai-upgrade-cta small {
+    display: block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #646970;
+}
+
+/* ============ FORM TABLE FIXES ============ */
+/* Table layout for forms */
+.cai-card .form-table {
+    margin-top: 0;
+    border-spacing: 0;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.cai-card .form-table tr {
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.cai-card .form-table tr:last-child {
+    border-bottom: none;
+}
+
+.cai-card .form-table th {
+    width: 200px;
+    padding: 16px 12px 16px 0;
+    font-weight: 600;
+    color: #1d2327;
+    vertical-align: top;
+    text-align: left;
+    background: #f8f9fa;
+    border-right: 1px solid #f0f0f1;
+}
+
+.cai-card .form-table td {
+    padding: 16px 12px;
+    vertical-align: middle;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    background: white;
+}
+
+/* Form controls */
+.cai-card input[type="url"],
+.cai-card input[type="text"],
+.cai-card input[type="number"],
+.cai-card select {
+    width: 100%;
+    max-width: 500px;
+    padding: 8px 12px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.cai-card input[type="url"]:focus,
+.cai-card input[type="text"]:focus,
+.cai-card input[type="number"]:focus,
+.cai-card select:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: none;
+}
+
+/* Checkboxes and labels */
+.cai-card label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.cai-card input[type="checkbox"] {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Description text */
+.cai-card .description {
+    color: #646970;
+    font-size: 13px;
+    margin: 8px 0 0 0;
+    line-height: 1.5;
+    display: block;
+    min-width: 0;
+    word-wrap: break-word;
+}
+
+.cai-card .description .dashicons {
+    vertical-align: middle;
+    margin-right: 4px;
+    color: #8c8f94;
+}
+
+/* Compression options */
+#cai-compression-options {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    border-left: 3px solid #2271b1;
+}
+
+#cai-compression-options label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+#cai-quality-slider {
+    margin: 10px 0 15px 0;
+}
+
+#cai-quality-value {
+    font-weight: 700;
+    color: #2271b1;
+    margin-left: 8px;
+}
+
+/* Batch size select */
+#cai_batch_size {
+    min-width: 200px;
+    padding: 8px 32px 8px 12px;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Submit button area */
+.cai-card .submit {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cai-card .submit .spinner {
+    float: none;
+    margin: 0;
+}
+
+/* Tooltips */
+.cai-tooltip {
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dotted #8c8f94;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cai-tooltip-text {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1d2327;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1000;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: none;
+}
+
+.cai-tooltip-text:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #1d2327;
+}
+
+.cai-tooltip:hover .cai-tooltip-text {
+    display: block;
+}
+
+/* ============ CONNECTION ACTIONS ============ */
+.cai-connection-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.cai-connection-actions .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    min-width: fit-content;
+}
+
+/* ============ ORIGINAL STATS GRID (for other cards) ============ */
+.cai-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+    min-width: 0;
+}
+
+.cai-stat-card {
+    text-align: center;
+    padding: 20px 12px;
+    background: linear-gradient(135deg, #f6f7f7 0%, #f0f0f1 100%);
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.2s ease;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.cai-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cai-stat-card.success {
+    border-color: #46b450;
+    background: linear-gradient(135deg, #edfaef 0%, #e6f7ea 100%);
+}
+
+.cai-stat-card.info {
+    border-color: #72aee6;
+    background: linear-gradient(135deg, #f0f6ff 0%, #e8f0fe 100%);
+}
+
+.cai-stat-card.warning {
+    border-color: #ffb900;
+    background: linear-gradient(135deg, #fef5ea 0%, #fcf0e3 100%);
+}
+
+.cai-stat-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2271b1;
+    margin-bottom: 6px;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+
+.cai-stat-label {
+    font-size: 11px;
+    color: #646970;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Stats in success/warning colors */
+.cai-stat-card.success .cai-stat-number {
+    color: #00a32a;
+}
+
+.cai-stat-card.info .cai-stat-number {
+    color: #2271b1;
+}
+
+.cai-stat-card.warning .cai-stat-number {
+    color: #dba617;
+}
+
+/* ============ TOAST NOTIFICATIONS ============ */
+.cai-toast {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    width: min(380px, 90vw);
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    z-index: 99999;
+    animation: slideInRight 0.3s ease;
+    border-left: 4px solid #0073aa;
+    overflow: hidden;
+}
+
+.cai-toast-warning {
+    border-left-color: #ffb900;
+}
+
+.cai-toast-error {
+    border-left-color: #dc3232;
+}
+
+.cai-toast-success {
+    border-left-color: #46b450;
+}
+
+.cai-toast-info {
+    border-left-color: #00a0d2;
+}
+
+.cai-toast-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f1;
+    background: #f8f9fa;
+}
+
+.cai-toast-header h4 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.cai-toast-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #787c82;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.cai-toast-close:hover {
+    background: #f0f0f1;
+    color: #50575e;
+}
+
+.cai-toast-body {
+    padding: 20px;
+}
+
+.cai-toast-body p {
+    margin: 0 0 16px 0;
+    color: #50575e;
+    line-height: 1.5;
+}
+
+.cai-ai-preview {
+    background: #f8f9fa;
+    border: 1px dashed #dcdcde;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 6px;
+    font-style: italic;
+    color: #646970;
+    font-size: 13px;
+}
+
+.cai-toast-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.cai-toast-actions .button {
+    flex: 1;
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+/* ============ UPGRADE MODALS ============ */
+.cai-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 99998;
+    animation: fadeIn 0.3s ease;
+}
+
+.cai-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    z-index: 99999;
+    width: min(500px, 90vw);
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalAppear 0.3s ease;
+}
+
+.cai-modal-content {
+    padding: 32px;
+}
+
+.cai-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #787c82;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.cai-modal-close:hover {
+    background: #f0f0f1;
+    color: #50575e;
+}
+
+/* ============ USAGE WARNING IN FORM ============ */
+#cai-usage-warning {
+    margin: 0 0 20px 0;
+    padding: 16px;
+    background: #fff3e6;
+    border: 1px solid #ffb900;
+    border-radius: 6px;
+    animation: pulse 2s infinite;
+}
+
+#cai-usage-warning p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #8a6900;
+}
+
+#cai-usage-warning strong {
+    color: #1d2327;
+}
+
+.cai-upgrade-prompt {
+    margin-top: 20px;
+    padding: 16px;
+    background: linear-gradient(135deg, #fff3e6 0%, #ffe8cc 100%);
+    border: 1px solid #ffb900;
+    border-radius: 6px;
+}
+
+.cai-upgrade-prompt p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.cai-upgrade-prompt .button-small {
+    padding: 6px 16px;
+    font-size: 12px;
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes modalAppear {
+    from {
+        transform: translate(-50%, -40%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 185, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 185, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 185, 0, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ============ STEPS COMPONENT ============ */
+.cai-steps {
+    margin: 24px 0;
+}
+
+.cai-step {
+    display: flex;
+    align-items: flex-start;
+    margin: 20px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f6f7f7 0%, #f0f0f1 100%);
+    border-radius: 6px;
+    border-left: 3px solid #2271b1;
+    transition: transform 0.2s ease;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.cai-step:hover {
+    transform: translateX(4px);
+}
+
+.cai-step-number {
+    background: #2271b1;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(34, 113, 177, 0.3);
+}
+
+/* ============ PRIMARY BUTTON ============ */
+.cai-card .button-primary {
+    background: linear-gradient(135deg, #2271b1, #135e96);
+    border-color: #135e96;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 20px;
+    height: auto;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cai-card .button-primary:hover {
+    background: linear-gradient(135deg, #135e96, #0c4b7a);
+    border-color: #0c4b7a;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(19, 94, 150, 0.3);
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+@media (max-width: 1200px) {
+    .cai-quick-stats-bar .cai-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .cai-card .form-table th {
+        width: 160px;
+    }
+}
+
+@media (max-width: 782px) {
+    .cai-dashboard {
+        grid-template-columns: 1fr;
+    }
+    
+    .cai-stats-grid,
+    .cai-quick-stats-bar .cai-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cai-upgrade-cta {
+        grid-column: span 2;
+    }
+    
+    /* Fixed form table mobile layout */
+    .cai-card .form-table {
+        display: table;
+        width: 100%;
+    }
+    
+    .cai-card .form-table th,
+    .cai-card .form-table td {
+        display: table-cell;
+        width: auto;
+        padding: 12px 8px;
+        border-bottom: 1px solid #f0f0f1;
+    }
+    
+    .cai-card .form-table th {
+        width: 35%;
+        font-size: 14px;
+        padding-right: 8px;
+        border-right: none;
+        background: transparent;
+    }
+    
+    .cai-card .form-table td {
+        width: 65%;
+        padding-left: 8px;
+    }
+    
+    .cai-card input[type="url"],
+    .cai-card input[type="text"],
+    .cai-card input[type="number"],
+    .cai-card select {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    #cai_batch_size {
+        min-width: 150px;
+    }
+    
+    /* Fixed progress actions */
+    .cai-progress-actions,
+    .cai-connection-actions,
+    .cai-stats-actions {
+        flex-direction: column;
+    }
+    
+    .cai-progress-actions .button,
+    .cai-connection-actions .button,
+    .cai-stats-actions .button {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .cai-toast {
+        top: 20px;
+        right: 20px;
+        left: 20px;
+        width: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .cai-card {
+        padding: 16px;
+    }
+    
+    .cai-stats-grid,
+    .cai-quick-stats-bar .cai-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .cai-upgrade-cta {
+        grid-column: 1;
+    }
+    
+    .cai-quick-stats-bar {
+        padding: 16px;
+        margin: 16px 0;
+    }
+    
+    .cai-status {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .cai-status .dashicons {
+        margin-right: 0;
+    }
+    
+    .cai-status span:last-child {
+        white-space: normal;
+    }
+    
+    /* Mobile form layout */
+    .cai-card .form-table {
+        display: block;
+    }
+    
+    .cai-card .form-table tbody {
+        display: block;
+    }
+    
+    .cai-card .form-table tr {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f1;
+    }
+    
+    .cai-card .form-table th,
+    .cai-card .form-table td {
+        display: block;
+        width: 100% !important;
+        padding: 8px 0;
+        border: none;
+        background: transparent;
+    }
+    
+    .cai-card .form-table th {
+        padding-bottom: 4px;
+        font-size: 14px;
+        color: #3c434a;
+        background: transparent;
+    }
+    
+    .cai-card .form-table td {
+        padding-top: 4px;
+        padding-bottom: 12px;
+    }
+    
+    .cai-card .form-table tr:last-child {
+        border-bottom: none;
+    }
+    
+    .cai-card .submit {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .cai-card .submit .button {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .cai-modal {
+        width: 95vw;
+        padding: 20px;
+    }
+    
+    .cai-modal-content {
+        padding: 20px;
+    }
+    
+    .cai-modal-actions {
+        flex-direction: column;
+    }
+    
+    #cai-usage-warning p,
+    .cai-upgrade-prompt p {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cai-card h2 {
+        font-size: 16px;
+    }
+    
+    .cai-stat-number,
+    .cai-stat-value {
+        font-size: 20px;
+    }
+    
+    .cai-stat-label {
+        font-size: 10px;
+    }
+    
+    .cai-toast-header h4 {
+        font-size: 14px;
+    }
+    
+    .cai-toast-body {
+        padding: 16px;
+    }
+}
+
+/* ============ IMPORT BUTTON DISABLED STATE ============ */
+#cai-start-import-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #f0f0f1 !important;
+    border-color: #dcdcde !important;
+    color: #8c8f94 !important;
+}
+
+/* ============ BATCH STATUS ============ */
+.cai-batch-status {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: #f0f6ff;
+    border: 1px solid #c6dbf2;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #2271b1;
+    font-family: monospace;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* ============ PROGRESS BAR CONTAINER ============ */
+.cai-progress-container {
+    background: #f8f9fa;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    padding: 24px;
+    margin: 20px 0;
+    animation: fadeIn 0.3s ease;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.cai-progress-container.completed {
+    background: linear-gradient(135deg, #edfaef 0%, #e6f7ea 100%);
+    border-color: #46b450;
+}
+
+.cai-progress-container h3 {
+    margin: 0 0 16px 0;
+    color: #1d2327;
+    font-size: 16px;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Progress Bar */
+.cai-progress-bar {
+    height: 12px;
+    background: #f0f0f1;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 16px 0;
+    position: relative;
+    width: 100%;
+}
+
+.cai-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2271b1, #135e96);
+    border-radius: 6px;
+    width: 0%;
+    transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.cai-progress-fill:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255,255,255,0.4) 50%, 
+        transparent 100%);
+    animation: shimmer 2s infinite;
+}
+
+.cai-progress-container.completed .cai-progress-fill {
+    background: linear-gradient(90deg, #00a32a, #008a20);
+}
+
+.cai-progress-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 16px;
+    min-width: 0;
+}
+
+#cai-progress-percentage {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2271b1;
+    min-width: 50px;
+    flex-shrink: 0;
+}
+
+.cai-progress-container.completed #cai-progress-percentage {
+    color: #00a32a;
+}
+
+#cai-progress-details {
+    color: #646970;
+    font-size: 13px;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cai-progress-stats {
+    background: #fff;
+    padding: 12px 16px;
+    border-radius: 4px;
+    border: 1px solid #dcdcde;
+    margin: 16px 0;
+    text-align: center;
+    font-weight: 500;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.cai-progress-stats span {
+    color: #2271b1;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.cai-progress-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.cai-progress-actions .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+    flex-shrink: 0;
+    min-width: fit-content;
+}
+
+.cai-progress-actions .button .dashicons {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
+/* ============ UPGRADE PAGE STYLES ============ */
+.cai-upgrade-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cai-current-plan {
+    margin-bottom: 40px;
+    border-left: 4px solid #46b450;
+}
+
+.cai-plan-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: #f0f6ff;
+    border: 1px solid #2271b1;
+    color: #2271b1;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.cai-plan-badge.free {
+    background: #f0f0f1;
+    border-color: #8c8f94;
+    color: #3c434a;
+}
+
+.cai-plan-badge.popular {
+    background: linear-gradient(135deg, #ffb900, #dba617);
+    border-color: #dba617;
+    color: white;
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    font-size: 12px;
+    padding: 4px 12px;
+}
+
+.cai-plan-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cai-plan-features li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: #50575e;
+}
+
+.cai-plan-features li:last-child {
+    border-bottom: none;
+}
+
+.cai-plan-features .dashicons-yes {
+    color: #46b450;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.cai-usage-summary {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f1;
+}
+
+.cai-usage-fill {
+    height: 8px;
+    background: linear-gradient(90deg, #46b450, #35a03e);
+    border-radius: 4px;
+}
+
+/* Upgrade Grid */
+.cai-upgrade-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 40px 0;
+}
+
+.cai-plan-card {
+    background: #fff;
+    border: 2px solid #dcdcde;
+    border-radius: 12px;
+    padding: 32px 24px;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cai-plan-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+    border-color: #2271b1;
+}
+
+.cai-plan-card.basic:hover {
+    border-color: #46b450;
+}
+
+.cai-plan-card.pro:hover {
+    border-color: #ffb900;
+}
+
+.cai-plan-card.lifetime:hover {
+    border-color: #7950ed;
+}
+
+.cai-plan-header {
+    text-align: center;
+    margin-bottom: 24px;
+    flex-shrink: 0;
+}
+
+.cai-plan-header h3 {
+    margin: 0 0 16px 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1d2327;
+}
+
+.cai-plan-price {
+    margin: 16px 0;
+}
+
+.cai-price {
+    font-size: 48px;
+    font-weight: 800;
+    color: #2271b1;
+    line-height: 1;
+}
+
+.cai-plan-card.basic .cai-price {
+    color: #46b450;
+}
+
+.cai-plan-card.pro .cai-price {
+    color: #ffb900;
+}
+
+.cai-plan-card.lifetime .cai-price {
+    color: #7950ed;
+}
+
+.cai-period {
+    font-size: 16px;
+    color: #646970;
+    margin-left: 4px;
+}
+
+.cai-plan-save {
+    font-size: 13px;
+    color: #00a32a;
+    font-weight: 600;
+    margin: 8px 0 0 0;
+}
+
+.cai-plan-features {
+    flex: 1;
+    margin: 24px 0;
+}
+
+.cai-plan-features strong {
+    color: #1d2327;
+    font-weight: 700;
+}
+
+.cai-plan-action {
+    text-align: center;
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+.cai-upgrade-btn {
+    background: linear-gradient(135deg, #2271b1, #135e96);
+    border: none;
+    color: white;
+    font-weight: 700;
+    padding: 16px 32px;
+    font-size: 16px;
+    border-radius: 8px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.cai-upgrade-btn:hover {
+    background: linear-gradient(135deg, #135e96, #0c4b7a);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(34, 113, 177, 0.3);
+}
+
+.cai-plan-card.basic .cai-upgrade-btn {
+    background: linear-gradient(135deg, #46b450, #35a03e);
+}
+
+.cai-plan-card.basic .cai-upgrade-btn:hover {
+    background: linear-gradient(135deg, #35a03e, #2c8a35);
+    box-shadow: 0 8px 16px rgba(70, 180, 80, 0.3);
+}
+
+.cai-plan-card.pro .cai-upgrade-btn {
+    background: linear-gradient(135deg, #ffb900, #dba617);
+}
+
+.cai-plan-card.pro .cai-upgrade-btn:hover {
+    background: linear-gradient(135deg, #dba617, #b59212);
+    box-shadow: 0 8px 16px rgba(255, 185, 0, 0.3);
+}
+
+.cai-plan-card.lifetime .cai-upgrade-btn {
+    background: linear-gradient(135deg, #7950ed, #6342c5);
+}
+
+.cai-plan-card.lifetime .cai-upgrade-btn:hover {
+    background: linear-gradient(135deg, #6342c5, #5035a2);
+    box-shadow: 0 8px 16px rgba(121, 80, 237, 0.3);
+}
+
+/* FAQ Section */
+.cai-faq {
+    margin: 24px 0;
+}
+
+.cai-faq-item {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: all 0.2s ease;
+}
+
+.cai-faq-item:hover {
+    background: #f0f6ff;
+    border-color: #c6dbf2;
+    transform: translateX(4px);
+}
+
+.cai-faq-item h3 {
+    margin: 0 0 12px 0;
+    color: #1d2327;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.cai-faq-item p {
+    margin: 0;
+    color: #50575e;
+    line-height: 1.6;
+}
+
+/* Upgrade Footer */
+.cai-upgrade-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #f0f0f1;
+}
+
+.cai-upgrade-footer .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Responsive for upgrade page */
+@media (max-width: 1024px) {
+    .cai-upgrade-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 782px) {
+    .cai-upgrade-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cai-plan-card {
+        padding: 24px 16px;
+    }
+    
+    .cai-price {
+        font-size: 36px;
+    }
+    
+    .cai-upgrade-btn {
+        padding: 14px 24px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cai-plan-badge.popular {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 16px;
+        display: block;
+        text-align: center;
+    }
+}
+/* ============ SIMPLIFIED QUICK STATS BAR ============ */
+.cai-quick-stats-bar .monthly-usage {
+    background: linear-gradient(135deg, #f0f6ff 0%, #e8f0fe 100%);
+    border: 2px solid #2271b1;
+    grid-column: span 2;
+}
+
+.cai-quick-stats-bar .monthly-usage .cai-stat-value {
+    font-size: 32px;
+    color: #2271b1;
+    margin: 12px 0;
+    font-weight: 700;
+}
+
+.cai-quick-stats-bar .monthly-usage .cai-progress-container {
+    margin-top: 15px;
+}
+
+.cai-quick-stats-bar .monthly-usage .cai-progress-bar {
+    height: 10px;
+    background: #e8f0fe;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.cai-quick-stats-bar .monthly-usage .cai-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2271b1, #135e96);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.cai-quick-stats-bar .monthly-usage .cai-progress-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #646970;
+}
+
+.cai-quick-stats-bar .monthly-usage .cai-usage-warning {
+    color: #d63638;
+    font-weight: 600;
+    font-size: 12px;
+    background: #fff3e6;
+    padding: 2px 8px;
+    border-radius: 3px;
+    border: 1px solid #ffb900;
+}
+
+/* Upgrade Card in Quick Stats */
+.cai-quick-stats-bar .upgrade-card {
+    background: linear-gradient(135deg, #fff3e6 0%, #ffe8cc 100%);
+    border: 2px solid #ffb900;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cai-quick-stats-bar .upgrade-card h4 {
+    color: #d63638;
+    margin-bottom: 8px;
+}
+
+.cai-quick-stats-bar .upgrade-card p {
+    margin: 8px 0 16px 0;
+    color: #8a6900;
+    font-size: 14px;
+}
+
+.cai-quick-stats-bar .upgrade-card .button {
+    background: #d63638;
+    border-color: #b32d2e;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.cai-quick-stats-bar .upgrade-card .button:hover {
+    background: #b32d2e;
+    border-color: #8a2424;
+}
+
+/* Stats Grid for Quick Stats */
+.cai-quick-stats-bar .cai-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin: 0;
+}
+
+.cai-quick-stats-bar .cai-stat-card {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.cai-quick-stats-bar .cai-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cai-quick-stats-bar .cai-stat-card h4 {
+    margin: 0 0 12px 0;
+    color: #3c434a;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cai-quick-stats-bar .cai-stat-card .cai-stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2271b1;
+    line-height: 1;
+    margin: 8px 0;
+}
+
+.cai-quick-stats-bar .cai-stat-card .cai-stat-label {
+    font-size: 12px;
+    color: #8c8f94;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive for quick stats */
+@media (max-width: 1200px) {
+    .cai-quick-stats-bar .cai-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .cai-quick-stats-bar .monthly-usage {
+        grid-column: span 1;
+    }
+    
+    .cai-quick-stats-bar .upgrade-card {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 782px) {
+    .cai-quick-stats-bar .cai-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .cai-quick-stats-bar .monthly-usage,
+    .cai-quick-stats-bar .upgrade-card {
+        grid-column: 1;
+    }
+}
+
+/* Simplified Live Stats */
+#cai-live-stats {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 20px 0;
+    gap: 12px;
+}
+
+#cai-live-stats .cai-stat-card {
+    padding: 15px;
+    text-align: center;
+}
+
+#cai-live-stats .cai-stat-number {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+#cai-live-stats .cai-stat-label {
+    font-size: 11px;
+    color: #646970;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Simplified Progress Actions */
+.cai-progress-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
