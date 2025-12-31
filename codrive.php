@@ -1,32 +1,4 @@
-<?php
-/**
- * Cloud Auto Importer - Google Drive Integration
- * Updated for ngrok testing with enhanced debugging
- */
 
-if (!defined('ABSPATH')) {
-    exit;
-}
-
-class CAI_Google_Drive {
-    
-    private $client_id;
-    private $client_secret;
-    private $redirect_uri;
-    
-    public function __construct() {
-        // ============================================
-        // HARDCODED CREDENTIALS
-        // ============================================
-        $this->client_id = '105518292760-5ptl01kqck2e0h4q234ktar4e8hv09mk.apps.googleusercontent.com';
-        $this->client_secret = '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';
-        
-        // ============================================
-        // DYNAMIC REDIRECT URI FOR NGROK
-        // ============================================
-        $this->redirect_uri = admin_url('admin.php?page=cloud-auto-importer');
-        
-        // Log initialization
         cai_log('Google Drive class initialized', 'info');
         cai_log('Redirect URI: ' . $this->redirect_uri, 'debug');
         
@@ -574,4 +546,5 @@ class CAI_Google_Drive {
             <?php
         }
     }
+
 }
